@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Emscripten-Generated Code</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <style>body {
   font-family: arial;
   margin: 0;
@@ -130,6 +131,11 @@ canvas.emscripten { border: 0px none; background-color: black; }
       var progressElement = document.getElementById('progress');
       var spinnerElement = document.getElementById('spinner');
       var canvasElement = document.getElementById('canvas');
+      var gl = canvasElement.getContext("webgl");
+      if (!gl) {
+        alert("Unable to initialize WebGL. Your browser may not support it.");
+        return;
+      }
       var outputElement = document.getElementById('output');
       if (outputElement) outputElement.value = ''; // clear browser cache
 
