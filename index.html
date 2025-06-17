@@ -130,6 +130,15 @@ canvas.emscripten { border: 0px none; background-color: black; }
       var progressElement = document.getElementById('progress');
       var spinnerElement = document.getElementById('spinner');
       var canvasElement = document.getElementById('canvas');
+      var Module = {
+        canvas: canvasElement,
+        onRuntimeInitialized: function () {
+        console.log("Runtime ready.");
+        },
+        print: console.log,
+        printErr: console.error
+      };
+</script>
       var outputElement = document.getElementById('output');
       if (outputElement) outputElement.value = ''; // clear browser cache
 
@@ -195,19 +204,8 @@ canvas.emscripten { border: 0px none; background-color: black; }
         };
       };
     </script>
-    <script>
-    var canvasElement = document.getElementById('canvas');
 
-    var Module = {
-      canvas: canvasElement,        // <<— tie the canvas here
-      print(...args) { /* your existing print */ },
-      setStatus(text) { /* ... */ },
-      monitorRunDependencies(left) { /* ... */ },
-      // etc.
-    };
+    <script type="text/javascript" src="index.js"></script>
 
-    // your window.onerror, Module.setStatus override, etc.
-  </script>
-    <script async type="text/javascript" src="index.js"></script>
   </body>
 </html>
