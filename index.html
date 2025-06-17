@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Emscripten-Generated Code</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <style>body {
   font-family: arial;
   margin: 0;
@@ -196,6 +195,19 @@ canvas.emscripten { border: 0px none; background-color: black; }
         };
       };
     </script>
+    <script>
+    var canvasElement = document.getElementById('canvas');
+
+    var Module = {
+      canvas: canvasElement,        // <<— tie the canvas here
+      print(...args) { /* your existing print */ },
+      setStatus(text) { /* ... */ },
+      monitorRunDependencies(left) { /* ... */ },
+      // etc.
+    };
+
+    // your window.onerror, Module.setStatus override, etc.
+  </script>
     <script async type="text/javascript" src="index.js"></script>
   </body>
 </html>
