@@ -67,10 +67,10 @@ void DrawSoundConfig(void);
 
 int main(void){
     InitAudioDevice();
-    Sound winSfx = LoadSound("./cute-level-up-3-189853.mp3") ;
-    Music MainMenuMusic = LoadMusicStream("./retro-wave-style-track-59892.mp3");
-    Music PlayMusic = LoadMusicStream("./beep-boop-64194.mp3");
-    Sound shot = LoadSound("./retro-game-shot-152052.mp3");
+    Sound winSfx = LoadSound("cute-level-up-3-189853.mp3") ;
+    Music MainMenuMusic = LoadMusicStream("retro-wave-style-track-59892.mp3");
+    Music PlayMusic = LoadMusicStream("beep-boop-64194.mp3");
+    Sound shot = LoadSound("retro-game-shot-152052.mp3");
 
     sound = PlayMusic ;
     menuSound = MainMenuMusic;
